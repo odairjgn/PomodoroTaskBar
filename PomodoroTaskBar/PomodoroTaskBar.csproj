@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ObjetosDeValor\Etapa.cs" />
+    <Compile Include="ObjetosDeValor\RefreshData.cs" />
     <Compile Include="ObjetosDeValor\TipoEtapa.cs" />
     <Compile Include="PomodoroTimer.cs">
       <SubType>UserControl</SubType>

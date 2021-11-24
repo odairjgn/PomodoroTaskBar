@@ -17,6 +17,9 @@ namespace PomodoroTaskBar.ObjetosDeValor
         public TimeSpan Restante => Duracao - _timer.Elapsed;
         public bool Rodando => _timer.IsRunning;
         public bool Terminado => Restante <= TimeSpan.Zero;
+        public bool Concluida { get; set; }
+        public float Progresso => (float)(_timer.Elapsed.TotalMilliseconds / Duracao.TotalMilliseconds);
+        public float ProgressoInverso => 1f - Progresso;
 
         private readonly Stopwatch _timer;
 

@@ -2,7 +2,7 @@
 {
     public enum TipoEtapa
     {
-        Pomodoro,
+        Foco,
         DescancoBreve,
         DescancoLongo
     }

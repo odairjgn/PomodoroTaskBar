@@ -16,9 +16,9 @@ namespace PomodoroTaskBar.Service
         {
             _inicializado = new ConfigValue<bool>(nameof(_inicializado));
             AvancarEtapasAutomaticamente = new ConfigValue<bool>(nameof(AvancarEtapasAutomaticamente));
-            TempoPomodoro = new ConfigValue<int>(nameof(TempoPomodoro));
-            TempoIntervaloCurto = new ConfigValue<int>(nameof(TempoIntervaloCurto));
-            TempoIntervaloLongo = new ConfigValue<int>(nameof(TempoIntervaloLongo));
+            TempoIntervaloCurto = new ConfigValue<TimeSpan>(nameof(TempoIntervaloCurto));
+            TempoIntervaloLongo = new ConfigValue<TimeSpan>(nameof(TempoIntervaloLongo));
+            TempoFoco = new ConfigValue<TimeSpan>(nameof(TempoFoco));
             PomodorosPorSessao = new ConfigValue<int>(nameof(PomodorosPorSessao));
 
             if (!_inicializado)
@@ -31,18 +31,18 @@ namespace PomodoroTaskBar.Service
         private ConfigValue<bool> _inicializado;
 
         public ConfigValue<bool> AvancarEtapasAutomaticamente { get; private set; }
-        public ConfigValue<int> TempoPomodoro { get; private set; }
-        public ConfigValue<int> TempoIntervaloCurto { get; private set; }
-        public ConfigValue<int> TempoIntervaloLongo { get; private set; }
+        public ConfigValue<TimeSpan> TempoIntervaloCurto { get; private set; }
+        public ConfigValue<TimeSpan> TempoIntervaloLongo { get; private set; }
+        public ConfigValue<TimeSpan> TempoFoco { get; private set; }
         public ConfigValue<int> PomodorosPorSessao { get; private set; }
-        public ConfigValue<bool> TocarSons { get; private set; }
 
         public void Resetar()
         {
-            AvancarEtapasAutomaticamente.Value =false ;
-            TempoPomodoro.Value = 25;
-            TempoIntervaloCurto.Value = 5;
-            TempoIntervaloLongo.Value = 15;
+            AvancarEtapasAutomaticamente.Value = false ;
+            TempoFoco.Value = TimeSpan.FromMinutes(25);
+            TempoIntervaloCurto.Value = TimeSpan.FromMinutes(5);
+            TempoIntervaloLongo.Value = TimeSpan.FromMinutes(15);
+            PomodorosPorSessao.Value = 8;
         }
     }
 }

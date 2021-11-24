@@ -1,6 +1,10 @@
 ﻿using CSDeskBand;
 using CSDeskBand.Win;
+using PomodoroTaskBar.ObjetosDeValor;
+using PomodoroTaskBar.Service;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace PomodoroTaskBar
 {
@@ -10,7 +14,7 @@ namespace PomodoroTaskBar
     [CSDeskBandRegistration(Name = "Pomodoro Task Bar Timer")]
     public class PomodoroTimer : CSDeskBandWin
     {
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbTempo;
         private System.Windows.Forms.ContextMenuStrip menuContexto;
         private System.ComponentModel.IContainer components;
         private System.Windows.Forms.ToolStripMenuItem pausarContinuarToolStripMenuItem;
@@ -19,55 +23,57 @@ namespace PomodoroTaskBar
         private System.Windows.Forms.ToolStripMenuItem redefinirToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem opçõesToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
+        private Service.Pomodoro pomodoro;
+        private ToolStripSeparator toolStripMenuItem3;
+        private ToolStripMenuItem sobreToolStripMenuItem;
+        private RefreshDataArgs _current;
+        private bool _mouse;
 
         public PomodoroTimer()
         {
-            Options.MinHorizontalSize = new Size(100, 30);
+            Options.MinHorizontalSize = new CSDeskBand.Size(100, 30);
             InitializeComponent();
+            pomodoro.Reset();
         }
 
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.menuContexto = new System.Windows.Forms.ContextMenuStrip();
+            this.components = new System.ComponentModel.Container();
+            this.lbTempo = new System.Windows.Forms.Label();
+            this.menuContexto = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pausarContinuarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.avançarEtapaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.redefinirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.opçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pomodoro = new PomodoroTaskBar.Service.Pomodoro();
             this.menuContexto.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // lbTempo
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(1, 1);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(28, 28);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.lbTempo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.ContextMenuStrip = this.menuContexto;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(32, 1);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 28);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "00:00";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbTempo.BackColor = System.Drawing.Color.Transparent;
+            this.lbTempo.ContextMenuStrip = this.menuContexto;
+            this.lbTempo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbTempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTempo.ForeColor = System.Drawing.Color.White;
+            this.lbTempo.Location = new System.Drawing.Point(3, 1);
+            this.lbTempo.Name = "lbTempo";
+            this.lbTempo.Size = new System.Drawing.Size(94, 28);
+            this.lbTempo.TabIndex = 1;
+            this.lbTempo.Text = "00:00";
+            this.lbTempo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbTempo.Click += new System.EventHandler(this.lbTempo_Click);
+            this.lbTempo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbTempo_MouseDown);
+            this.lbTempo.MouseEnter += new System.EventHandler(this.lbTempo_MouseEnter);
+            this.lbTempo.MouseLeave += new System.EventHandler(this.lbTempo_MouseLeave);
+            this.lbTempo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbTempo_MouseUp);
             // 
             // menuContexto
             // 
@@ -77,9 +83,11 @@ namespace PomodoroTaskBar
             this.toolStripMenuItem1,
             this.redefinirToolStripMenuItem,
             this.toolStripMenuItem2,
-            this.opçõesToolStripMenuItem});
+            this.opçõesToolStripMenuItem,
+            this.toolStripMenuItem3,
+            this.sobreToolStripMenuItem});
             this.menuContexto.Name = "menuContexto";
-            this.menuContexto.Size = new System.Drawing.Size(168, 104);
+            this.menuContexto.Size = new System.Drawing.Size(168, 132);
             // 
             // pausarContinuarToolStripMenuItem
             // 
@@ -115,15 +123,137 @@ namespace PomodoroTaskBar
             this.opçõesToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.opçõesToolStripMenuItem.Text = "Opções";
             // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(164, 6);
+            // 
+            // sobreToolStripMenuItem
+            // 
+            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.sobreToolStripMenuItem.Text = "Sobre...";
+            // 
+            // pomodoro
+            // 
+            this.pomodoro.Enabled = true;
+            this.pomodoro.FimDoCiclo += new System.EventHandler(this.pomodoro_FimDoCiclo);
+            this.pomodoro.FimEtapa += new System.EventHandler<PomodoroTaskBar.ObjetosDeValor.Etapa>(this.pomodoro_FimEtapa);
+            this.pomodoro.RefreshData += new System.EventHandler<PomodoroTaskBar.ObjetosDeValor.RefreshDataArgs>(this.pomodoro_RefreshData);
+            // 
             // PomodoroTimer
             // 
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lbTempo);
             this.Name = "PomodoroTimer";
             this.Size = new System.Drawing.Size(100, 30);
             this.menuContexto.ResumeLayout(false);
             this.ResumeLayout(false);
 
+        }
+
+        private void pomodoro_FimDoCiclo(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void pomodoro_FimEtapa(object sender, ObjetosDeValor.Etapa e)
+        {
+            if (Configuracoes.Instancia.AvancarEtapasAutomaticamente)
+                pomodoro.Iniciar();
+        }
+
+        private void pomodoro_RefreshData(object sender, ObjetosDeValor.RefreshDataArgs e)
+        {
+            _current = e;
+
+            string text;
+
+            if (_mouse)
+                text = _current.Etapa?.Rodando ?? false ? "Parar" : "Iniciar";
+            else
+                text = _current.Etapa == null ? "" : _current.Etapa.Restante.ToString("mm\\:ss");
+
+            lbTempo.Text = text;
+            Invalidate();
+        }
+
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            if (_current.Etapa == null) return;
+
+            var g = e.Graphics;
+            var retangulo = this.Bounds;
+            var newr = new RectangleF(retangulo.X, retangulo.Y, retangulo.Width * _current.Etapa.ProgressoInverso, retangulo.Height);
+            g.FillRectangle(_current.Etapa.Tipo == TipoEtapa.Foco ? Brushes.Green : Brushes.CornflowerBlue, newr);
+
+            var rectetaps = new Rectangle(retangulo.X + 1, retangulo.Height - 7, retangulo.Width - 2, 5);
+            var f = rectetaps.Width / (float)_current.Count;
+            float x = rectetaps.X;
+            if (pomodoro.Etapas != null)
+            {
+                foreach (var et in pomodoro.Etapas)
+                {
+                    var re = new RectangleF(x, rectetaps.Y, f, rectetaps.Height);
+                    x += f;
+
+                    Brush pincel = null;
+
+                    if (et.Concluida)
+                    {
+                        if (et.Tipo == TipoEtapa.Foco)
+                            pincel = Brushes.GreenYellow;
+                        else if (et.Tipo == TipoEtapa.DescancoBreve)
+                            pincel = Brushes.AliceBlue;
+                        else
+                            pincel = Brushes.Gold;
+                    }
+                    else if (et.Rodando)
+                        pincel = Brushes.Yellow;
+
+                    if (pincel != null)
+                    {
+                        g.FillRectangle(pincel, re);
+                    }
+
+                    g.DrawRectangles(Pens.Gray, new[] { re });
+                }
+            }
+        }
+
+        private void lbTempo_Click(object sender, System.EventArgs e)
+        {
+            if (pomodoro.Rodando)
+                pomodoro.Parar();
+            else if (pomodoro.Finalizado)
+            {
+                pomodoro.Reset();
+                pomodoro.Iniciar();
+            }
+            else
+                pomodoro.Iniciar();
+        }
+
+        private void lbTempo_MouseEnter(object sender, System.EventArgs e)
+        {
+            _mouse = true;
+        }
+
+        private void lbTempo_MouseLeave(object sender, System.EventArgs e)
+        {
+            _mouse = false;
+        }
+
+        private void lbTempo_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        private void lbTempo_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.BorderStyle = BorderStyle.None;
         }
     }
 }
