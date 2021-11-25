@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Configuracoes.cs" />
+    <Compile Include="Service\ModifyProgressBarColor.cs" />
     <Compile Include="Service\Pomodoro.cs">
       <SubType>Component</SubType>
     </Compile>

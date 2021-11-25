@@ -2,6 +2,7 @@
 using CSDeskBand.Win;
 using PomodoroTaskBar.ObjetosDeValor;
 using PomodoroTaskBar.Service;
+using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -38,6 +39,8 @@ namespace PomodoroTaskBar
             pomodoro.Reset();
         }
 
+        
+
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
@@ -51,9 +54,9 @@ namespace PomodoroTaskBar
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.lbTempo = new System.Windows.Forms.Label();
             this.pomodoro = new PomodoroTaskBar.Service.Pomodoro();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.menuContexto.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -127,6 +130,19 @@ namespace PomodoroTaskBar
             this.panel1.Size = new System.Drawing.Size(100, 30);
             this.panel1.TabIndex = 1;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar1.Location = new System.Drawing.Point(2, 23);
+            this.progressBar1.Maximum = 1000;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(96, 6);
+            this.progressBar1.Step = 1;
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar1.TabIndex = 3;
+            // 
             // lbTempo
             // 
             this.lbTempo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -154,16 +170,6 @@ namespace PomodoroTaskBar
             this.pomodoro.FimDoCiclo += new System.EventHandler(this.pomodoro_FimDoCiclo);
             this.pomodoro.FimEtapa += new System.EventHandler<PomodoroTaskBar.ObjetosDeValor.Etapa>(this.pomodoro_FimEtapa);
             this.pomodoro.RefreshData += new System.EventHandler<PomodoroTaskBar.ObjetosDeValor.RefreshDataArgs>(this.pomodoro_RefreshData);
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.Location = new System.Drawing.Point(2, 23);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(96, 6);
-            this.progressBar1.TabIndex = 3;
             // 
             // PomodoroTimer
             // 
@@ -199,8 +205,42 @@ namespace PomodoroTaskBar
             else
                 text = _current.Etapa == null ? "" : _current.Etapa.Restante.ToString("mm\\:ss");
 
+            if((_current.Etapa?.Tipo??TipoEtapa.Foco) != TipoEtapa.Foco)
+            {
+                text = $"☕ {text} ☕";
+            }
+
             lbTempo.Text = text;
-            panel1.Invalidate();
+
+            if (_current.Etapa != null)
+            {
+                if (progressBar1.Style != ProgressBarStyle.Continuous)
+                    progressBar1.Style = ProgressBarStyle.Continuous;
+
+                progressBar1.Value = Math.Max(Math.Min((int)(_current.Etapa.ProgressoInverso * 1000), progressBar1.Maximum), 0);
+            }
+            else
+            {
+                progressBar1.Style = ProgressBarStyle.Marquee;
+            }
+
+            if (_current.Etapa?.Rodando ?? false)
+                ModifyProgressBarColor.SetState(progressBar1, ModifyProgressBarColor.State.Normal);
+            else
+                ModifyProgressBarColor.SetState(progressBar1, ModifyProgressBarColor.State.Error);
+
+            switch (_current.Etapa?.Tipo)
+            {
+                case TipoEtapa.DescancoBreve:
+                    lbTempo.ForeColor = Color.Gold;
+                    break;
+                case TipoEtapa.DescancoLongo:
+                    lbTempo.ForeColor = Color.GreenYellow;
+                    break;
+                default:
+                    lbTempo.ForeColor = Color.White;
+                    break;
+            }
         }
 
         private void lbTempo_Click(object sender, System.EventArgs e)
