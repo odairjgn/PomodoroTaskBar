@@ -14,7 +14,6 @@ namespace PomodoroTaskBar
     [CSDeskBandRegistration(Name = "Pomodoro Task Bar Timer")]
     public class PomodoroTimer : CSDeskBandWin
     {
-        private System.Windows.Forms.Label lbTempo;
         private System.Windows.Forms.ContextMenuStrip menuContexto;
         private System.ComponentModel.IContainer components;
         private System.Windows.Forms.ToolStripMenuItem pausarContinuarToolStripMenuItem;
@@ -27,6 +26,9 @@ namespace PomodoroTaskBar
         private ToolStripSeparator toolStripMenuItem3;
         private ToolStripMenuItem sobreToolStripMenuItem;
         private RefreshDataArgs _current;
+        private Panel panel1;
+        private Label lbTempo;
+        private ProgressBar progressBar1;
         private bool _mouse;
 
         public PomodoroTimer()
@@ -39,7 +41,6 @@ namespace PomodoroTaskBar
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lbTempo = new System.Windows.Forms.Label();
             this.menuContexto = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pausarContinuarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.avançarEtapaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,31 +50,13 @@ namespace PomodoroTaskBar
             this.opçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbTempo = new System.Windows.Forms.Label();
             this.pomodoro = new PomodoroTaskBar.Service.Pomodoro();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.menuContexto.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lbTempo
-            // 
-            this.lbTempo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbTempo.BackColor = System.Drawing.Color.Transparent;
-            this.lbTempo.ContextMenuStrip = this.menuContexto;
-            this.lbTempo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbTempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTempo.ForeColor = System.Drawing.Color.White;
-            this.lbTempo.Location = new System.Drawing.Point(3, 1);
-            this.lbTempo.Name = "lbTempo";
-            this.lbTempo.Size = new System.Drawing.Size(94, 28);
-            this.lbTempo.TabIndex = 1;
-            this.lbTempo.Text = "00:00";
-            this.lbTempo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbTempo.Click += new System.EventHandler(this.lbTempo_Click);
-            this.lbTempo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbTempo_MouseDown);
-            this.lbTempo.MouseEnter += new System.EventHandler(this.lbTempo_MouseEnter);
-            this.lbTempo.MouseLeave += new System.EventHandler(this.lbTempo_MouseLeave);
-            this.lbTempo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbTempo_MouseUp);
             // 
             // menuContexto
             // 
@@ -134,6 +117,37 @@ namespace PomodoroTaskBar
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.sobreToolStripMenuItem.Text = "Sobre...";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.progressBar1);
+            this.panel1.Controls.Add(this.lbTempo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(100, 30);
+            this.panel1.TabIndex = 1;
+            // 
+            // lbTempo
+            // 
+            this.lbTempo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTempo.BackColor = System.Drawing.Color.Transparent;
+            this.lbTempo.ContextMenuStrip = this.menuContexto;
+            this.lbTempo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbTempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTempo.ForeColor = System.Drawing.Color.White;
+            this.lbTempo.Location = new System.Drawing.Point(3, 1);
+            this.lbTempo.Name = "lbTempo";
+            this.lbTempo.Size = new System.Drawing.Size(94, 18);
+            this.lbTempo.TabIndex = 2;
+            this.lbTempo.Text = "00:00";
+            this.lbTempo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbTempo.Click += new System.EventHandler(this.lbTempo_Click);
+            this.lbTempo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbTempo_MouseDown);
+            this.lbTempo.MouseEnter += new System.EventHandler(this.lbTempo_MouseEnter);
+            this.lbTempo.MouseLeave += new System.EventHandler(this.lbTempo_MouseLeave);
+            this.lbTempo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbTempo_MouseUp);
+            // 
             // pomodoro
             // 
             this.pomodoro.Enabled = true;
@@ -141,12 +155,24 @@ namespace PomodoroTaskBar
             this.pomodoro.FimEtapa += new System.EventHandler<PomodoroTaskBar.ObjetosDeValor.Etapa>(this.pomodoro_FimEtapa);
             this.pomodoro.RefreshData += new System.EventHandler<PomodoroTaskBar.ObjetosDeValor.RefreshDataArgs>(this.pomodoro_RefreshData);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar1.Location = new System.Drawing.Point(2, 23);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(96, 6);
+            this.progressBar1.TabIndex = 3;
+            // 
             // PomodoroTimer
             // 
-            this.Controls.Add(this.lbTempo);
+            this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.panel1);
             this.Name = "PomodoroTimer";
             this.Size = new System.Drawing.Size(100, 30);
             this.menuContexto.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -174,53 +200,7 @@ namespace PomodoroTaskBar
                 text = _current.Etapa == null ? "" : _current.Etapa.Restante.ToString("mm\\:ss");
 
             lbTempo.Text = text;
-            Invalidate();
-        }
-
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
-
-            if (_current.Etapa == null) return;
-
-            var g = e.Graphics;
-            var retangulo = this.Bounds;
-            var newr = new RectangleF(retangulo.X, retangulo.Y, retangulo.Width * _current.Etapa.ProgressoInverso, retangulo.Height);
-            g.FillRectangle(_current.Etapa.Tipo == TipoEtapa.Foco ? Brushes.Green : Brushes.CornflowerBlue, newr);
-
-            var rectetaps = new Rectangle(retangulo.X + 1, retangulo.Height - 7, retangulo.Width - 2, 5);
-            var f = rectetaps.Width / (float)_current.Count;
-            float x = rectetaps.X;
-            if (pomodoro.Etapas != null)
-            {
-                foreach (var et in pomodoro.Etapas)
-                {
-                    var re = new RectangleF(x, rectetaps.Y, f, rectetaps.Height);
-                    x += f;
-
-                    Brush pincel = null;
-
-                    if (et.Concluida)
-                    {
-                        if (et.Tipo == TipoEtapa.Foco)
-                            pincel = Brushes.GreenYellow;
-                        else if (et.Tipo == TipoEtapa.DescancoBreve)
-                            pincel = Brushes.AliceBlue;
-                        else
-                            pincel = Brushes.Gold;
-                    }
-                    else if (et.Rodando)
-                        pincel = Brushes.Yellow;
-
-                    if (pincel != null)
-                    {
-                        g.FillRectangle(pincel, re);
-                    }
-
-                    g.DrawRectangles(Pens.Gray, new[] { re });
-                }
-            }
+            panel1.Invalidate();
         }
 
         private void lbTempo_Click(object sender, System.EventArgs e)
@@ -255,5 +235,6 @@ namespace PomodoroTaskBar
         {
             this.BorderStyle = BorderStyle.None;
         }
+
     }
 }
