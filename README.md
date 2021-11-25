@@ -6,7 +6,7 @@ Esse plug-in para barra de ferramentas do Windows ajuda no controle de ciclos po
 Disponha os arquivos do plugin-in em um local fixo. Depois, bsta executar como administrador o arquivo ```InstallScript.bat```.
 
 ## Desinstalação
-Execute o arquivo ```UnistallScript````como adminstrador.
+Execute o arquivo ```UnistallScript``` como adminstrador.
 
 ## Requisitos
 - Windows 7 ou superior;
