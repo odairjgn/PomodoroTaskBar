@@ -21,8 +21,7 @@ namespace PomodoroTaskBar.Forms
 
         private void btnRedefinir_Click(object sender, EventArgs e)
         {
-            Configuracoes.Instancia.Resetar();
-            Carregar();
+            
         }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -31,12 +30,18 @@ namespace PomodoroTaskBar.Forms
 
         private void Carregar()
         {
-            throw new NotImplementedException();
+            
         }
 
         private void Salvar()
         {
+            Configuracoes.TriggarEventoConfiguracaoAlterada();
+        }
 
+        private void Resetar()
+        {
+            Configuracoes.Instancia.Resetar();
+            Carregar();
         }
 
     }

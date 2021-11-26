@@ -9,6 +9,13 @@ namespace PomodoroTaskBar.Service
 {
     public class Configuracoes
     {
+        public static EventHandler ConfiguracaoAlterada;
+
+        public static void TriggarEventoConfiguracaoAlterada()
+        {
+            ConfiguracaoAlterada?.Invoke(null, EventArgs.Empty);
+        }
+
         private static Configuracoes _instancia;
         public static Configuracoes Instancia => _instancia ?? (_instancia = new Configuracoes());
 
@@ -76,6 +83,8 @@ namespace PomodoroTaskBar.Service
             TipoAlertaVisual.Value = Service.TipoAlertaVisual.Toast;
             TipoAlertaSonoro.Value = Service.TipoAlertaSonoro.Bip;
             AlertaSonoroCustom.Value = null;
+
+            TriggarEventoConfiguracaoAlterada();
         }
     }
 }
