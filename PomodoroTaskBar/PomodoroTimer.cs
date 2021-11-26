@@ -1,5 +1,6 @@
 ﻿using CSDeskBand;
 using CSDeskBand.Win;
+using PomodoroTaskBar.Forms;
 using PomodoroTaskBar.ObjetosDeValor;
 using PomodoroTaskBar.Service;
 using System;
@@ -30,6 +31,7 @@ namespace PomodoroTaskBar
         private Panel panel1;
         private Label lbTempo;
         private ProgressBar progressBar1;
+        private ToolStripMenuItem redefinirEtapaToolStripMenuItem;
         private bool _mouse;
 
         public PomodoroTimer()
@@ -57,6 +59,7 @@ namespace PomodoroTaskBar
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.lbTempo = new System.Windows.Forms.Label();
             this.pomodoro = new PomodoroTaskBar.Service.Pomodoro();
+            this.redefinirEtapaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuContexto.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +69,7 @@ namespace PomodoroTaskBar
             this.menuContexto.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pausarContinuarToolStripMenuItem,
             this.avançarEtapaToolStripMenuItem,
+            this.redefinirEtapaToolStripMenuItem,
             this.toolStripMenuItem1,
             this.redefinirToolStripMenuItem,
             this.toolStripMenuItem2,
@@ -73,51 +77,52 @@ namespace PomodoroTaskBar
             this.toolStripMenuItem3,
             this.sobreToolStripMenuItem});
             this.menuContexto.Name = "menuContexto";
-            this.menuContexto.Size = new System.Drawing.Size(168, 132);
+            this.menuContexto.Size = new System.Drawing.Size(181, 176);
             // 
             // pausarContinuarToolStripMenuItem
             // 
             this.pausarContinuarToolStripMenuItem.Name = "pausarContinuarToolStripMenuItem";
-            this.pausarContinuarToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.pausarContinuarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pausarContinuarToolStripMenuItem.Text = "Pausar/Continuar";
             // 
             // avançarEtapaToolStripMenuItem
             // 
             this.avançarEtapaToolStripMenuItem.Name = "avançarEtapaToolStripMenuItem";
-            this.avançarEtapaToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.avançarEtapaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.avançarEtapaToolStripMenuItem.Text = "Avançar Etapa";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(164, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
             // 
             // redefinirToolStripMenuItem
             // 
             this.redefinirToolStripMenuItem.Name = "redefinirToolStripMenuItem";
-            this.redefinirToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.redefinirToolStripMenuItem.Text = "Redefinir";
+            this.redefinirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.redefinirToolStripMenuItem.Text = "Redefinir Ciclo";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(164, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 6);
             // 
             // opçõesToolStripMenuItem
             // 
             this.opçõesToolStripMenuItem.Name = "opçõesToolStripMenuItem";
-            this.opçõesToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.opçõesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.opçõesToolStripMenuItem.Text = "Opções";
+            this.opçõesToolStripMenuItem.Click += new System.EventHandler(this.opçõesToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(164, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 6);
             // 
             // sobreToolStripMenuItem
             // 
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sobreToolStripMenuItem.Text = "Sobre...";
             // 
             // panel1
@@ -170,6 +175,12 @@ namespace PomodoroTaskBar
             this.pomodoro.FimDoCiclo += new System.EventHandler(this.pomodoro_FimDoCiclo);
             this.pomodoro.FimEtapa += new System.EventHandler<PomodoroTaskBar.ObjetosDeValor.Etapa>(this.pomodoro_FimEtapa);
             this.pomodoro.RefreshData += new System.EventHandler<PomodoroTaskBar.ObjetosDeValor.RefreshDataArgs>(this.pomodoro_RefreshData);
+            // 
+            // redefinirEtapaToolStripMenuItem
+            // 
+            this.redefinirEtapaToolStripMenuItem.Name = "redefinirEtapaToolStripMenuItem";
+            this.redefinirEtapaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.redefinirEtapaToolStripMenuItem.Text = "Redefinir Etapa";
             // 
             // PomodoroTimer
             // 
@@ -276,5 +287,11 @@ namespace PomodoroTaskBar
             this.BorderStyle = BorderStyle.None;
         }
 
+        private void opçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new ConfigForm();
+            form.ShowDialog();
+            form.Dispose();
+        }
     }
 }
