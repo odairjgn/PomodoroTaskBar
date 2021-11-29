@@ -1,7 +1,10 @@
-﻿namespace PomodoroTaskBar.Service
+﻿using System.ComponentModel;
+
+namespace PomodoroTaskBar.Service
 {
     public enum TipoAlertaVisual
     {
-        Toast
+        [Description("Toast")]
+        Toast = 0
     }
 }

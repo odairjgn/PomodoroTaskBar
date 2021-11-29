@@ -1,7 +1,11 @@
-﻿namespace PomodoroTaskBar.Service
+﻿using System.ComponentModel;
+
+namespace PomodoroTaskBar.Service
 {
     public enum TipoAlertaSonoro
     {
-        Bip
+        [Description("Bip")]
+        Bip = 0,
+        Custom = 1
     }
 }

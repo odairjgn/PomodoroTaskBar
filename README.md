@@ -19,7 +19,7 @@ Para exibir ou ocultar, utilize o menu de contexto da barra de tarefas (botão d
 - [x] ~~Layout básico e responsívo;~~
 - [x] ~~Serviço de marcação de tempo;~~
 - [x] ~~Implementação de funcionalidades básicas;~~
-- [ ] UI para configuração do software;
+- [x] UI para configuração do software;
 - [ ] Implementação de ações automáticas;
 - [ ] Suporte a alertas sonoros e visuais;
 - [ ] Melhorias no menu de contexto;

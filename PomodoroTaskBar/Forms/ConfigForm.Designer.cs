@@ -29,41 +29,42 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.nQtdPmodoros = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.nPausaLonga = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.nPausaBreve = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nTempoFoco = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.ckReiniciarAuto = new System.Windows.Forms.CheckBox();
+            this.ckProxEtapaAuto = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.colorPickerButton1 = new PomodoroTaskBar.CustomControls.ColorPickerButton();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.colorPickerButton2 = new PomodoroTaskBar.CustomControls.ColorPickerButton();
-            this.label7 = new System.Windows.Forms.Label();
-            this.colorPickerButton3 = new PomodoroTaskBar.CustomControls.ColorPickerButton();
             this.label8 = new System.Windows.Forms.Label();
-            this.colorPickerButton4 = new PomodoroTaskBar.CustomControls.ColorPickerButton();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSelFile = new System.Windows.Forms.Button();
+            this.txtAlertaSonoroCustom = new System.Windows.Forms.TextBox();
+            this.cbTipoAlertaSonoro = new System.Windows.Forms.ComboBox();
+            this.cbTipoAlertaVisual = new System.Windows.Forms.ComboBox();
+            this.ckAlertaSonoro = new System.Windows.Forms.CheckBox();
+            this.ckAlertaVisual = new System.Windows.Forms.CheckBox();
+            this.ckNotificacao = new System.Windows.Forms.CheckBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnRedefinir = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.cPausaLonga = new PomodoroTaskBar.CustomControls.ColorPickerButton();
+            this.cPausaBreve = new PomodoroTaskBar.CustomControls.ColorPickerButton();
+            this.cPeriodoFoco = new PomodoroTaskBar.CustomControls.ColorPickerButton();
+            this.cCorRefFundo = new PomodoroTaskBar.CustomControls.ColorPickerButton();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nQtdPmodoros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nPausaLonga)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nPausaBreve)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nTempoFoco)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -71,13 +72,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.numericUpDown4);
+            this.groupBox1.Controls.Add(this.nQtdPmodoros);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.numericUpDown3);
+            this.groupBox1.Controls.Add(this.nPausaLonga);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.numericUpDown2);
+            this.groupBox1.Controls.Add(this.nPausaBreve);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
+            this.groupBox1.Controls.Add(this.nTempoFoco);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Highlight;
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
@@ -87,24 +88,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tempos";
             // 
-            // numericUpDown4
+            // nQtdPmodoros
             // 
-            this.numericUpDown4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDown4.Location = new System.Drawing.Point(192, 96);
-            this.numericUpDown4.Maximum = new decimal(new int[] {
+            this.nQtdPmodoros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.nQtdPmodoros.Location = new System.Drawing.Point(192, 96);
+            this.nQtdPmodoros.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.numericUpDown4.Minimum = new decimal(new int[] {
+            this.nQtdPmodoros.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(58, 20);
-            this.numericUpDown4.TabIndex = 7;
-            this.numericUpDown4.Value = new decimal(new int[] {
+            this.nQtdPmodoros.Name = "nQtdPmodoros";
+            this.nQtdPmodoros.Size = new System.Drawing.Size(58, 20);
+            this.nQtdPmodoros.TabIndex = 7;
+            this.nQtdPmodoros.Value = new decimal(new int[] {
             8,
             0,
             0,
@@ -120,24 +121,24 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Quantidade de pomodoros";
             // 
-            // numericUpDown3
+            // nPausaLonga
             // 
-            this.numericUpDown3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDown3.Location = new System.Drawing.Point(192, 70);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
+            this.nPausaLonga.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.nPausaLonga.Location = new System.Drawing.Point(192, 70);
+            this.nPausaLonga.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.numericUpDown3.Minimum = new decimal(new int[] {
+            this.nPausaLonga.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(58, 20);
-            this.numericUpDown3.TabIndex = 5;
-            this.numericUpDown3.Value = new decimal(new int[] {
+            this.nPausaLonga.Name = "nPausaLonga";
+            this.nPausaLonga.Size = new System.Drawing.Size(58, 20);
+            this.nPausaLonga.TabIndex = 5;
+            this.nPausaLonga.Value = new decimal(new int[] {
             15,
             0,
             0,
@@ -153,24 +154,24 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Pausa longa";
             // 
-            // numericUpDown2
+            // nPausaBreve
             // 
-            this.numericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDown2.Location = new System.Drawing.Point(192, 44);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.nPausaBreve.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.nPausaBreve.Location = new System.Drawing.Point(192, 44);
+            this.nPausaBreve.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
+            this.nPausaBreve.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(58, 20);
-            this.numericUpDown2.TabIndex = 3;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.nPausaBreve.Name = "nPausaBreve";
+            this.nPausaBreve.Size = new System.Drawing.Size(58, 20);
+            this.nPausaBreve.TabIndex = 3;
+            this.nPausaBreve.Value = new decimal(new int[] {
             5,
             0,
             0,
@@ -186,24 +187,24 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Pausa breve";
             // 
-            // numericUpDown1
+            // nTempoFoco
             // 
-            this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDown1.Location = new System.Drawing.Point(192, 18);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.nTempoFoco.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.nTempoFoco.Location = new System.Drawing.Point(192, 18);
+            this.nTempoFoco.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.nTempoFoco.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(58, 20);
-            this.numericUpDown1.TabIndex = 1;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.nTempoFoco.Name = "nTempoFoco";
+            this.nTempoFoco.Size = new System.Drawing.Size(58, 20);
+            this.nTempoFoco.TabIndex = 1;
+            this.nTempoFoco.Value = new decimal(new int[] {
             25,
             0,
             0,
@@ -221,8 +222,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.checkBox2);
-            this.groupBox2.Controls.Add(this.checkBox1);
+            this.groupBox2.Controls.Add(this.ckReiniciarAuto);
+            this.groupBox2.Controls.Add(this.ckProxEtapaAuto);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.Highlight;
             this.groupBox2.Location = new System.Drawing.Point(275, 13);
             this.groupBox2.Name = "groupBox2";
@@ -231,38 +232,38 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tempos";
             // 
-            // checkBox2
+            // ckReiniciarAuto
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox2.Location = new System.Drawing.Point(10, 43);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(190, 17);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Recomeçar ciclo automaticamente";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.ckReiniciarAuto.AutoSize = true;
+            this.ckReiniciarAuto.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ckReiniciarAuto.Location = new System.Drawing.Point(10, 43);
+            this.ckReiniciarAuto.Name = "ckReiniciarAuto";
+            this.ckReiniciarAuto.Size = new System.Drawing.Size(190, 17);
+            this.ckReiniciarAuto.TabIndex = 1;
+            this.ckReiniciarAuto.Text = "Recomeçar ciclo automaticamente";
+            this.ckReiniciarAuto.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // ckProxEtapaAuto
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox1.Location = new System.Drawing.Point(10, 20);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(243, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Avançar para próxima etapa automaticamente";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.ckProxEtapaAuto.AutoSize = true;
+            this.ckProxEtapaAuto.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ckProxEtapaAuto.Location = new System.Drawing.Point(10, 20);
+            this.ckProxEtapaAuto.Name = "ckProxEtapaAuto";
+            this.ckProxEtapaAuto.Size = new System.Drawing.Size(243, 17);
+            this.ckProxEtapaAuto.TabIndex = 0;
+            this.ckProxEtapaAuto.Text = "Avançar para próxima etapa automaticamente";
+            this.ckProxEtapaAuto.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.colorPickerButton4);
+            this.groupBox3.Controls.Add(this.cPausaLonga);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.colorPickerButton3);
+            this.groupBox3.Controls.Add(this.cPausaBreve);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.colorPickerButton2);
+            this.groupBox3.Controls.Add(this.cPeriodoFoco);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.colorPickerButton1);
+            this.groupBox3.Controls.Add(this.cCorRefFundo);
             this.groupBox3.ForeColor = System.Drawing.SystemColors.Highlight;
             this.groupBox3.Location = new System.Drawing.Point(13, 145);
             this.groupBox3.Name = "groupBox3";
@@ -270,63 +271,6 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cores";
-            // 
-            // colorPickerButton1
-            // 
-            this.colorPickerButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.colorPickerButton1.Cor = System.Drawing.Color.Black;
-            this.colorPickerButton1.Location = new System.Drawing.Point(184, 20);
-            this.colorPickerButton1.Name = "colorPickerButton1";
-            this.colorPickerButton1.Size = new System.Drawing.Size(66, 22);
-            this.colorPickerButton1.TabIndex = 0;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(6, 25);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(103, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Cor referência fundo";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.Location = new System.Drawing.Point(6, 53);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(113, 13);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Cor texto período foco";
-            // 
-            // colorPickerButton2
-            // 
-            this.colorPickerButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.colorPickerButton2.Cor = System.Drawing.Color.White;
-            this.colorPickerButton2.Location = new System.Drawing.Point(184, 48);
-            this.colorPickerButton2.Name = "colorPickerButton2";
-            this.colorPickerButton2.Size = new System.Drawing.Size(66, 22);
-            this.colorPickerButton2.TabIndex = 2;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(6, 81);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(151, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Cor texto período pausa breve";
-            // 
-            // colorPickerButton3
-            // 
-            this.colorPickerButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.colorPickerButton3.Cor = System.Drawing.Color.Gold;
-            this.colorPickerButton3.Location = new System.Drawing.Point(184, 76);
-            this.colorPickerButton3.Name = "colorPickerButton3";
-            this.colorPickerButton3.Size = new System.Drawing.Size(66, 22);
-            this.colorPickerButton3.TabIndex = 4;
             // 
             // label8
             // 
@@ -338,24 +282,45 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "Cor texto período pausa longa";
             // 
-            // colorPickerButton4
+            // label7
             // 
-            this.colorPickerButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.colorPickerButton4.Cor = System.Drawing.Color.Gold;
-            this.colorPickerButton4.Location = new System.Drawing.Point(184, 104);
-            this.colorPickerButton4.Name = "colorPickerButton4";
-            this.colorPickerButton4.Size = new System.Drawing.Size(66, 22);
-            this.colorPickerButton4.TabIndex = 6;
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(6, 81);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(151, 13);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Cor texto período pausa breve";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label6.Location = new System.Drawing.Point(6, 53);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(113, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Cor texto período foco";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label5.Location = new System.Drawing.Point(6, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(103, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Cor referência fundo";
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.button1);
-            this.groupBox4.Controls.Add(this.textBox1);
-            this.groupBox4.Controls.Add(this.comboBox2);
-            this.groupBox4.Controls.Add(this.comboBox1);
-            this.groupBox4.Controls.Add(this.checkBox5);
-            this.groupBox4.Controls.Add(this.checkBox3);
-            this.groupBox4.Controls.Add(this.checkBox4);
+            this.groupBox4.Controls.Add(this.btnSelFile);
+            this.groupBox4.Controls.Add(this.txtAlertaSonoroCustom);
+            this.groupBox4.Controls.Add(this.cbTipoAlertaSonoro);
+            this.groupBox4.Controls.Add(this.cbTipoAlertaVisual);
+            this.groupBox4.Controls.Add(this.ckAlertaSonoro);
+            this.groupBox4.Controls.Add(this.ckAlertaVisual);
+            this.groupBox4.Controls.Add(this.ckNotificacao);
             this.groupBox4.ForeColor = System.Drawing.SystemColors.Highlight;
             this.groupBox4.Location = new System.Drawing.Point(275, 97);
             this.groupBox4.Name = "groupBox4";
@@ -364,77 +329,77 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Alertas";
             // 
-            // checkBox3
+            // btnSelFile
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox3.Location = new System.Drawing.Point(10, 43);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(83, 17);
-            this.checkBox3.TabIndex = 1;
-            this.checkBox3.Text = "Alerta visual";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.btnSelFile.Location = new System.Drawing.Point(227, 146);
+            this.btnSelFile.Name = "btnSelFile";
+            this.btnSelFile.Size = new System.Drawing.Size(26, 23);
+            this.btnSelFile.TabIndex = 6;
+            this.btnSelFile.Text = "...";
+            this.btnSelFile.UseVisualStyleBackColor = true;
+            this.btnSelFile.Click += new System.EventHandler(this.button1_Click);
             // 
-            // checkBox4
+            // txtAlertaSonoroCustom
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox4.Location = new System.Drawing.Point(10, 20);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(106, 17);
-            this.checkBox4.TabIndex = 0;
-            this.checkBox4.Text = "Exibir notificação";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.txtAlertaSonoroCustom.Location = new System.Drawing.Point(12, 146);
+            this.txtAlertaSonoroCustom.Name = "txtAlertaSonoroCustom";
+            this.txtAlertaSonoroCustom.ReadOnly = true;
+            this.txtAlertaSonoroCustom.Size = new System.Drawing.Size(209, 20);
+            this.txtAlertaSonoroCustom.TabIndex = 5;
             // 
-            // checkBox5
+            // cbTipoAlertaSonoro
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox5.Location = new System.Drawing.Point(10, 95);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(88, 17);
-            this.checkBox5.TabIndex = 2;
-            this.checkBox5.Text = "Alerta sonoro";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.cbTipoAlertaSonoro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipoAlertaSonoro.FormattingEnabled = true;
+            this.cbTipoAlertaSonoro.Location = new System.Drawing.Point(12, 118);
+            this.cbTipoAlertaSonoro.Name = "cbTipoAlertaSonoro";
+            this.cbTipoAlertaSonoro.Size = new System.Drawing.Size(238, 21);
+            this.cbTipoAlertaSonoro.TabIndex = 4;
+            this.cbTipoAlertaSonoro.SelectedIndexChanged += new System.EventHandler(this.cbTipoAlertaSonoro_SelectedIndexChanged);
             // 
-            // comboBox1
+            // cbTipoAlertaVisual
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Toast",
-            "Dialogo (fechamento automático)",
-            "Dialogo (fechamento manual)"});
-            this.comboBox1.Location = new System.Drawing.Point(12, 65);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(238, 21);
-            this.comboBox1.TabIndex = 3;
+            this.cbTipoAlertaVisual.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipoAlertaVisual.FormattingEnabled = true;
+            this.cbTipoAlertaVisual.Location = new System.Drawing.Point(12, 65);
+            this.cbTipoAlertaVisual.Name = "cbTipoAlertaVisual";
+            this.cbTipoAlertaVisual.Size = new System.Drawing.Size(238, 21);
+            this.cbTipoAlertaVisual.TabIndex = 3;
             // 
-            // comboBox2
+            // ckAlertaSonoro
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(12, 118);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(238, 21);
-            this.comboBox2.TabIndex = 4;
+            this.ckAlertaSonoro.AutoSize = true;
+            this.ckAlertaSonoro.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ckAlertaSonoro.Location = new System.Drawing.Point(10, 95);
+            this.ckAlertaSonoro.Name = "ckAlertaSonoro";
+            this.ckAlertaSonoro.Size = new System.Drawing.Size(88, 17);
+            this.ckAlertaSonoro.TabIndex = 2;
+            this.ckAlertaSonoro.Text = "Alerta sonoro";
+            this.ckAlertaSonoro.UseVisualStyleBackColor = true;
+            this.ckAlertaSonoro.CheckedChanged += new System.EventHandler(this.ckAlertaSonoro_CheckedChanged);
             // 
-            // textBox1
+            // ckAlertaVisual
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 146);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(209, 20);
-            this.textBox1.TabIndex = 5;
+            this.ckAlertaVisual.AutoSize = true;
+            this.ckAlertaVisual.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ckAlertaVisual.Location = new System.Drawing.Point(10, 43);
+            this.ckAlertaVisual.Name = "ckAlertaVisual";
+            this.ckAlertaVisual.Size = new System.Drawing.Size(83, 17);
+            this.ckAlertaVisual.TabIndex = 1;
+            this.ckAlertaVisual.Text = "Alerta visual";
+            this.ckAlertaVisual.UseVisualStyleBackColor = true;
+            this.ckAlertaVisual.CheckedChanged += new System.EventHandler(this.ckAlertaVisual_CheckedChanged);
             // 
-            // button1
+            // ckNotificacao
             // 
-            this.button1.Location = new System.Drawing.Point(227, 146);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(26, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ckNotificacao.AutoSize = true;
+            this.ckNotificacao.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ckNotificacao.Location = new System.Drawing.Point(10, 20);
+            this.ckNotificacao.Name = "ckNotificacao";
+            this.ckNotificacao.Size = new System.Drawing.Size(106, 17);
+            this.ckNotificacao.TabIndex = 0;
+            this.ckNotificacao.Text = "Exibir notificação";
+            this.ckNotificacao.UseVisualStyleBackColor = true;
             // 
             // btnSalvar
             // 
@@ -458,6 +423,47 @@
             this.btnRedefinir.UseVisualStyleBackColor = true;
             this.btnRedefinir.Click += new System.EventHandler(this.btnRedefinir_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "ofdCustomAlertaSonoro";
+            this.openFileDialog1.Filter = "Arquivos WAV|*.wav";
+            // 
+            // cPausaLonga
+            // 
+            this.cPausaLonga.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cPausaLonga.Cor = System.Drawing.Color.Gold;
+            this.cPausaLonga.Location = new System.Drawing.Point(184, 104);
+            this.cPausaLonga.Name = "cPausaLonga";
+            this.cPausaLonga.Size = new System.Drawing.Size(66, 22);
+            this.cPausaLonga.TabIndex = 6;
+            // 
+            // cPausaBreve
+            // 
+            this.cPausaBreve.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cPausaBreve.Cor = System.Drawing.Color.Gold;
+            this.cPausaBreve.Location = new System.Drawing.Point(184, 76);
+            this.cPausaBreve.Name = "cPausaBreve";
+            this.cPausaBreve.Size = new System.Drawing.Size(66, 22);
+            this.cPausaBreve.TabIndex = 4;
+            // 
+            // cPeriodoFoco
+            // 
+            this.cPeriodoFoco.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cPeriodoFoco.Cor = System.Drawing.Color.White;
+            this.cPeriodoFoco.Location = new System.Drawing.Point(184, 48);
+            this.cPeriodoFoco.Name = "cPeriodoFoco";
+            this.cPeriodoFoco.Size = new System.Drawing.Size(66, 22);
+            this.cPeriodoFoco.TabIndex = 2;
+            // 
+            // cCorRefFundo
+            // 
+            this.cCorRefFundo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cCorRefFundo.Cor = System.Drawing.Color.Black;
+            this.cCorRefFundo.Location = new System.Drawing.Point(184, 20);
+            this.cCorRefFundo.Name = "cCorRefFundo";
+            this.cCorRefFundo.Size = new System.Drawing.Size(66, 22);
+            this.cCorRefFundo.TabIndex = 0;
+            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -476,10 +482,10 @@
             this.Text = "Configurações";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nQtdPmodoros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nPausaLonga)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nPausaBreve)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nTempoFoco)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -493,35 +499,36 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown nPausaLonga;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown nPausaBreve;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nTempoFoco;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.NumericUpDown nQtdPmodoros;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox ckReiniciarAuto;
+        private System.Windows.Forms.CheckBox ckProxEtapaAuto;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label8;
-        private CustomControls.ColorPickerButton colorPickerButton4;
+        private CustomControls.ColorPickerButton cPausaLonga;
         private System.Windows.Forms.Label label7;
-        private CustomControls.ColorPickerButton colorPickerButton3;
+        private CustomControls.ColorPickerButton cPausaBreve;
         private System.Windows.Forms.Label label6;
-        private CustomControls.ColorPickerButton colorPickerButton2;
+        private CustomControls.ColorPickerButton cPeriodoFoco;
         private System.Windows.Forms.Label label5;
-        private CustomControls.ColorPickerButton colorPickerButton1;
+        private CustomControls.ColorPickerButton cCorRefFundo;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.Button btnSelFile;
+        private System.Windows.Forms.TextBox txtAlertaSonoroCustom;
+        private System.Windows.Forms.ComboBox cbTipoAlertaSonoro;
+        private System.Windows.Forms.ComboBox cbTipoAlertaVisual;
+        private System.Windows.Forms.CheckBox ckAlertaSonoro;
+        private System.Windows.Forms.CheckBox ckAlertaVisual;
+        private System.Windows.Forms.CheckBox ckNotificacao;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnRedefinir;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

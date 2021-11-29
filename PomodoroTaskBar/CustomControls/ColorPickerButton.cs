@@ -35,18 +35,16 @@ namespace PomodoroTaskBar.CustomControls
             button1.FlatAppearance.BorderColor = invertido;
         }
 
-        protected override void OnClick(EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             var colorp = new ColorDialog() { Color = Cor, FullOpen = true, SolidColorOnly = true };
 
-            if(colorp.ShowDialog() == DialogResult.OK)
+            if (colorp.ShowDialog() == DialogResult.OK)
             {
                 Cor = colorp.Color;
             }
 
             colorp.Dispose();
-
-            base.OnClick(e);
         }
     }
 }
