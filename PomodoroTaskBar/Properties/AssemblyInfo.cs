@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("PomodoroTaskBar")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Projeto que visa integrar a metodologia Pomodora a barra de tarefas do Windows. Esse plug-in para barra de ferramentas do Windows ajuda no controle de ciclos pomodoro enquanto trabalha.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("PomodoroTaskBar")]

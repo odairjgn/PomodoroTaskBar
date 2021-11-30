@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.nQtdPmodoros = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,9 +43,13 @@
             this.ckProxEtapaAuto = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.cPausaLonga = new PomodoroTaskBar.CustomControls.ColorPickerButton();
             this.label7 = new System.Windows.Forms.Label();
+            this.cPausaBreve = new PomodoroTaskBar.CustomControls.ColorPickerButton();
             this.label6 = new System.Windows.Forms.Label();
+            this.cPeriodoFoco = new PomodoroTaskBar.CustomControls.ColorPickerButton();
             this.label5 = new System.Windows.Forms.Label();
+            this.cCorRefFundo = new PomodoroTaskBar.CustomControls.ColorPickerButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnSelFile = new System.Windows.Forms.Button();
             this.txtAlertaSonoroCustom = new System.Windows.Forms.TextBox();
@@ -56,10 +61,6 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnRedefinir = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.cPausaLonga = new PomodoroTaskBar.CustomControls.ColorPickerButton();
-            this.cPausaBreve = new PomodoroTaskBar.CustomControls.ColorPickerButton();
-            this.cPeriodoFoco = new PomodoroTaskBar.CustomControls.ColorPickerButton();
-            this.cCorRefFundo = new PomodoroTaskBar.CustomControls.ColorPickerButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nQtdPmodoros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nPausaLonga)).BeginInit();
@@ -282,6 +283,15 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "Cor texto período pausa longa";
             // 
+            // cPausaLonga
+            // 
+            this.cPausaLonga.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cPausaLonga.Cor = System.Drawing.Color.Gold;
+            this.cPausaLonga.Location = new System.Drawing.Point(184, 104);
+            this.cPausaLonga.Name = "cPausaLonga";
+            this.cPausaLonga.Size = new System.Drawing.Size(66, 22);
+            this.cPausaLonga.TabIndex = 6;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -291,6 +301,15 @@
             this.label7.Size = new System.Drawing.Size(151, 13);
             this.label7.TabIndex = 5;
             this.label7.Text = "Cor texto período pausa breve";
+            // 
+            // cPausaBreve
+            // 
+            this.cPausaBreve.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cPausaBreve.Cor = System.Drawing.Color.Gold;
+            this.cPausaBreve.Location = new System.Drawing.Point(184, 76);
+            this.cPausaBreve.Name = "cPausaBreve";
+            this.cPausaBreve.Size = new System.Drawing.Size(66, 22);
+            this.cPausaBreve.TabIndex = 4;
             // 
             // label6
             // 
@@ -302,6 +321,15 @@
             this.label6.TabIndex = 3;
             this.label6.Text = "Cor texto período foco";
             // 
+            // cPeriodoFoco
+            // 
+            this.cPeriodoFoco.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cPeriodoFoco.Cor = System.Drawing.Color.White;
+            this.cPeriodoFoco.Location = new System.Drawing.Point(184, 48);
+            this.cPeriodoFoco.Name = "cPeriodoFoco";
+            this.cPeriodoFoco.Size = new System.Drawing.Size(66, 22);
+            this.cPeriodoFoco.TabIndex = 2;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -311,6 +339,15 @@
             this.label5.Size = new System.Drawing.Size(103, 13);
             this.label5.TabIndex = 1;
             this.label5.Text = "Cor referência fundo";
+            // 
+            // cCorRefFundo
+            // 
+            this.cCorRefFundo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cCorRefFundo.Cor = System.Drawing.Color.Black;
+            this.cCorRefFundo.Location = new System.Drawing.Point(184, 20);
+            this.cCorRefFundo.Name = "cCorRefFundo";
+            this.cCorRefFundo.Size = new System.Drawing.Size(66, 22);
+            this.cCorRefFundo.TabIndex = 0;
             // 
             // groupBox4
             // 
@@ -428,42 +465,6 @@
             this.openFileDialog1.FileName = "ofdCustomAlertaSonoro";
             this.openFileDialog1.Filter = "Arquivos WAV|*.wav";
             // 
-            // cPausaLonga
-            // 
-            this.cPausaLonga.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cPausaLonga.Cor = System.Drawing.Color.Gold;
-            this.cPausaLonga.Location = new System.Drawing.Point(184, 104);
-            this.cPausaLonga.Name = "cPausaLonga";
-            this.cPausaLonga.Size = new System.Drawing.Size(66, 22);
-            this.cPausaLonga.TabIndex = 6;
-            // 
-            // cPausaBreve
-            // 
-            this.cPausaBreve.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cPausaBreve.Cor = System.Drawing.Color.Gold;
-            this.cPausaBreve.Location = new System.Drawing.Point(184, 76);
-            this.cPausaBreve.Name = "cPausaBreve";
-            this.cPausaBreve.Size = new System.Drawing.Size(66, 22);
-            this.cPausaBreve.TabIndex = 4;
-            // 
-            // cPeriodoFoco
-            // 
-            this.cPeriodoFoco.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cPeriodoFoco.Cor = System.Drawing.Color.White;
-            this.cPeriodoFoco.Location = new System.Drawing.Point(184, 48);
-            this.cPeriodoFoco.Name = "cPeriodoFoco";
-            this.cPeriodoFoco.Size = new System.Drawing.Size(66, 22);
-            this.cPeriodoFoco.TabIndex = 2;
-            // 
-            // cCorRefFundo
-            // 
-            this.cCorRefFundo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cCorRefFundo.Cor = System.Drawing.Color.Black;
-            this.cCorRefFundo.Location = new System.Drawing.Point(184, 20);
-            this.cCorRefFundo.Name = "cCorRefFundo";
-            this.cCorRefFundo.Size = new System.Drawing.Size(66, 22);
-            this.cCorRefFundo.TabIndex = 0;
-            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -476,6 +477,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ConfigForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
